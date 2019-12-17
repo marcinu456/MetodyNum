@@ -11,7 +11,7 @@ def f(t):
     return u*np.log(M0/(M0-m*t))-g*t-335
 
 
-print(optimize.newton(f,0))
+print(optimize.newton(f,10))
 t= np.arange(0,100,0.01)
 plt.plot(optimize.newton(f,0),0,'o')
 plt.plot(t,f(t))

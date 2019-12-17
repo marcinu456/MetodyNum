@@ -21,29 +21,19 @@ def draw_line():
     plt.plot(x_kosz, y_kosz, linewidth=3)
     
 
-def rzut(x,y,a,v,vy):
-    for t in np.arange(0.0,100.0, 0.01):
-        g=9.81
+def rzut(x,y):
+    for t in np.arange(0.0,2.0, 0.01):
         x_p=v*np.cos(a)*t
         y_p=2+v*np.sin(a)*t-((g*t*t))/2
-        if x_p<=10.0: #jeśli punkt x jest mniejszy niż 10 dodawaj do listy
+        if x_p<=10.0:
             #print(y_p)
             x.append(x_p)
             y.append(y_p)
-            vy.append(v*np.sin(a)-(g*t))
-        else:
-            break
 
 
-def check(v,a,vy):
-    vx=v*np.cos(a)
-    #print(np.abs(vy[-1]/vx))
-
-    #jeśli wysokość jest pomiedzy <2.95;3.05> i tangens <0.95;1.05> zwróć false
-    if (2.95 <= y[-1] <= 3.05) and (0.95<=(np.abs(vy[-1]/vx))<=1.05) :#and (2.95 <= y[-1] <= 3.05):
+def check(x,y):
+    if (44.0<=((y[-1]/x[-1])*(180/np.pi))<=46.0) and (2.95 <= y[-1] <= 3.05):
         print(f"x={x[-1]},y={y[-1]}")
-        print(f"vx={vx},vy={vy[-1]}")
-        print(f"v={v},a={np.rad2deg(a)}")
         return False
     else:
         return True
@@ -51,20 +41,19 @@ def check(v,a,vy):
 
 
 if __name__ == '__main__':
-    print("run")
     draw_line()
     #v=11.8
-    
+    g=9.81
     ff=True
-    for v in np.arange(10,11,0.1):
-        for i in np.arange(10,90,0.1):
+    for v in np.arange(5,25,0.01):
+        for i in np.arange(0,90):
             if ff is True:
-                a=np.deg2rad(i)
-                x=[]#dlugość
-                y=[]#wysokość
-                vy=[]#prędkość y w danej chwili
-                rzut(x,y,a,v,vy)
-                ff=check(v,a,vy)
+                a=i*np.pi/180
+                x=[]
+                y=[]
+                rzut(x,y)
+                ff=check(x,y)
+                #print(f"x={x[-1]},y={y[-1]}")
 
     
     print(len(x))

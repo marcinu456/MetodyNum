@@ -2,13 +2,14 @@ import numpy as np
 from scipy import optimize
 import matplotlib.pyplot as plt
 
+
 def pierw(x):
     return 2*x**4+24*x**3+61*x**2-16*x+1
 
 eps1=1e-14
 eps2=9e-16
 
-d=0.001
+d=0.0001
 a=-1
 for b in np.arange(-10,10,d):
     if np.sign(pierw(a))!=np.sign(pierw(b)):
