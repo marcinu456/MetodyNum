@@ -2,7 +2,7 @@
 
 import unittest
 # import gauss
-import lista_04.zad_04_02 as zad_02
+import zad_04_02 as zad_02
 
 class Test_lista_04(unittest.TestCase):
     
