@@ -30,5 +30,7 @@ plt.plot(x, y)
 z = np.cos(x)/3
 for i in range(0, 5):
     plt.plot(x, np.sin(z)+(3.14*i))
+plt.axvline(x=0,color='k')
+plt.axvline(x=1.5,color='k')
 plt.grid()
 plt.show()

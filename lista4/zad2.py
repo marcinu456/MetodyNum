@@ -35,5 +35,12 @@ def f(x,num):
     return x**5-num
 def f_prim(x): 
     return 5*x**4
+x=32
+print(f"32^(1/5) = {niut(x, 32)}")
 
-print(f"32^(1/5) = {niut(32, 32)}")
+
+x1 = np.linspace(-3, 3, 1000)
+plt.plot(x1, f(x1, 32), color='r')
+plt.axhline(y=0,color='k')
+
+plt.show()
