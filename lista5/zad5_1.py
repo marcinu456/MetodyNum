@@ -1,3 +1,4 @@
+#sigma obliczyć p 2,24 k=0,81
 import matplotlib.pyplot as plt
 import numpy as np
 dx=np.array([1.0, 2.5, 3.5, 4.0, 1.1, 1.8, 2.2, 3.7],dtype=float)

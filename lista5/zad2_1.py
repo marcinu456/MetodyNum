@@ -1,3 +1,4 @@
+#zrobić lagrance
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.interpolate import CubicSpline
@@ -12,12 +13,10 @@ xw2 = np.arange(1.0, 3, 0.01)
 plt.plot(xw2, wl_2(xw2))
 # plt.plot(2.1,wl_2(2.1,1),'ro')
 
-
-for x in np.arange(1,3,0.01):
-    if(np.round(wl_2(x),3)>=-0.02 and np.round(wl_2(x),3)<=0.02 ):
-        plt.plot(x, wl_2(x),'o')
-        print(np.round(x,2))
-
+mz_x = wl_2.roots()[1:-1]
+mz_y = np.zeros(len(mz_x))
+print('miejsce zerowe:', mz_x)
+plt.plot(mz_x, mz_y, 'ob')
 plt.grid()
 plt.legend(['dane',  'wl_2'], loc='best')
 plt.show()
