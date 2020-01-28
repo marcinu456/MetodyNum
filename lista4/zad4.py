@@ -14,7 +14,7 @@ plt.plot(x,y2)
 plt.plot(x,y3)
 
 
-
+przyb=3
 
 
 
@@ -23,17 +23,17 @@ def fdz(x):
             x[0]**2+2*x[0]*x[1]-x[1]**2+np.tan(x[0])]
 
 odp=[]
-for i in np.arange(-2, 2,0.1 ):
-    for j in np.arange(-2, 2, 0.1):
-        x1=optimize.root(fdz,[j,i])
-        if x1.success:
-            x=round(x1.x[0],2)
-            y=round(x1.x[1],2)
-            if x**2+y**2<=4  :
-                if  [round(x1.x[0],2),round(x1.x[1],2)] not  in odp:
-                    # print(round(x1.x[0],3),round(x1.x[1],3))
-                    odp.append([round(x1.x[0],2),round(x1.x[1],2)])
-                    ax.plot((round(x1.x[0],2)), (round(x1.x[1],2)), 'o', color='r',markersize=1)
+xz=[np.array([-1.270,-1.260]),np.array([-0.720,-0.700]),np.array([1.200, 1.210])]
+for i in xz:
+    x1=optimize.root(fdz,i)
+    if x1.success:
+        x=round(x1.x[0],przyb)
+        y=round(x1.x[1],przyb)
+        if x**2+y**2<=4  :
+            if  [round(x1.x[0],przyb),round(x1.x[1],przyb)] not  in odp:
+                # print(round(x1.x[0],3),round(x1.x[1],3))
+                odp.append([round(x1.x[0],przyb),round(x1.x[1],przyb)])
+                ax.plot((round(x1.x[0],przyb)), (round(x1.x[1],przyb)), 'o', color='r',markersize=5)
 #print(odp)
 ax.axis('equal')
 ax.set_xlim((-3, 3))

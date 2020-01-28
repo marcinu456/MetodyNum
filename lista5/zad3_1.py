@@ -8,7 +8,7 @@ dy=np.array([103, 13.9, 2.72, 0.8, 0.401, 0.433])
 lgx=np.log(dx)
 lgy=np.log(dy)
 lgcs=CubicSpline(lgx, lgy)
-xw = [5.50,5000]
+xw = [5,50,5000]
 yw=np.exp(lgcs(np.log(xw)))
 print('yw=', yw)
 

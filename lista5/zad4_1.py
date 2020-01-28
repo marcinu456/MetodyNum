@@ -10,6 +10,12 @@ wl_2 = lagrange(np.log(dx), np.log(dy))
 plt.plot((dx), (dy),'o')
 # xw2 = np.linspace(np.log10(0.2), np.log10(20000))
 xw2 = np.arange((0.2), (20000), 1)
+
+xw = [5,50,5000]
+yw=np.exp(wl_2(np.log(xw)))
+print('yw=', yw)
+
+plt.plot(xw, yw, 'og')
 plt.plot((xw2), np.exp(wl_2(np.log(xw2))))
 plt.legend(['dane',  'wl_2'], loc='best')
 plt.xscale('log')
