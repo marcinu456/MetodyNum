@@ -20,7 +20,6 @@ t_ob4 = np.arange(0,t_max,1)
 w4 = solve_ivp(lambda t,y:f4(t,y,m,ro), [0,t_max], y40)
 print(w4.y[0,-1])
 
-
 # Warunek  na osiągnięcie gruntu  przez spadające ciało
 def grunt(t,y):
     return y[0]
@@ -36,10 +35,15 @@ y40 = [y_0, v_0]
 w4 = solve_ivp(lambda t,y:f4(t,y,m,ro), [0,t_max], y40,events=grunt,atol=1e-12,rtol=1e-10)
 plt.rcParams.update({'font.size': 22})
 fig,ax1=plt.subplots(figsize=(12, 6))
-
+tyt='Rzut pionowy z odbiciami sprężystymi'
+ax1.set_title(tyt)
 
 ax1.plot(w4.t,w4.y[0],linewidth=3,color='blue')
+
+
+
+
+ax1.set_xlabel('t')
+ax1.set_ylabel("y")
+
 plt.show()
-
-
-
