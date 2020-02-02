@@ -14,5 +14,6 @@ def hfxy(x):
     return x
 
 
-wdxy=dblquad(fxy,0,1,gfxy,hfxy)
+wdxy=dblquad(fxy,1,0,gfxy,hfxy)
 print(" %18.14f" %(wdxy[0]))
+
