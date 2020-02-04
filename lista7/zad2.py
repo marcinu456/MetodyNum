@@ -14,7 +14,8 @@ w0=np.sqrt(q/l)
 w=2.0/3.0
 A=0.5
 tmax=300
-t72=np.arange(0.0,tmax,0.01 )
+t72=np.arange(0.0,tmax,0.03 )
 wyn72=solve_ivp(lambda t,y:f72(t,y,q,w,A), [0,tmax], y720, t_eval=t72)
-plt.plot(t72/w0,wyn72.y[0])
+#plt.plot(t72/w0,wyn72.y[0])
+plt.plot(wyn72.y[1],wyn72.y[0])
 plt.show()

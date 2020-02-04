@@ -1,16 +1,10 @@
-from scipy.integrate import solve_ivp
 import matplotlib.pyplot as plt
-import numpy as np
-from scipy import optimize
-from scipy.interpolate import CubicSpline
-
-
 import numpy as np
 from scipy.sparse import diags
 from scipy.sparse.linalg import eigsh
 # punkt brzegowy a
 a=4.6
-n=100 
+n=1000 
 # krok - stała sieci
 h=2*a/n
 #lambda
@@ -30,8 +24,7 @@ Hm=diags(data,positions,(n-1,n-1)).tocsc()
 # użycie opcji sigma wymaga ustawienia which='LM'
 #
 eH,vH=eigsh(Hm,k=4,sigma=0.0,which='LM')
-#
-# eH,vH=eigsh(Hm,k=4,which='SM') to jest bardzo wolna opcja: n=10000 liczy kilka minut
+
 print('wartości własne\n')
 print(eH)
 

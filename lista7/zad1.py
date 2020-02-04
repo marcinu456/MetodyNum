@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 def f1(t, y): 
     return np.sin(t*y)
 y0=[2]
-wyn = solve_ivp(f1, [0, 6], y0)
+wyn = solve_ivp(f1, [0, 6], y0,atol=1e-12,rtol=1e-9)
 print('t=',wyn.t)
 print('\ny=',wyn.y[0])
 
